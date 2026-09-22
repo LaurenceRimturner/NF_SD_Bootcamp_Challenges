@@ -273,7 +273,7 @@ CSS based on conditions such as viewport width, etc. */
     height: 400px;
   }
   .main-content {
-    padding: 0;
+    padding: 0 var(--gap) var(--gap);
   }
 }
 
