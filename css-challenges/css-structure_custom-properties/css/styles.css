@@ -1,3 +1,12 @@
+:root {
+  --color-granite: #252629;
+  --color-nemo: #ff4a11;
+  --color-foam: #fff;
+  --color-neonpurple: #8336ff73;
+
+  --font-size-h2: clamp(1.5rem, 4vw, 2.5rem);
+}
+
 *,
 *::before,
 *::after {
@@ -11,8 +20,7 @@ body {
 }
 
 header {
-  background: rgb(131 54 255/ 45%);
-  
+  background: var(--color-neonpurple);
 }
 
 h1 {
@@ -27,10 +35,11 @@ h1 {
 
 h2 {
   letter-spacing: 0.025em;
+  font-size: var(--font-size-h2);
 }
 
 strong {
-  color: #ff4a11;
+  color: var(--color-nemo);
 }
 
 section {
@@ -58,7 +67,7 @@ figure {
   gap: 10px;
   margin: 0;
   padding: 10px;
-  background-color: #ff4a11ff;
+  background-color: var(--color-nemo);
   border-radius: 4px;
 }
 
@@ -77,24 +86,24 @@ a {
   font-size: smaller;
   padding: 8px;
   border-radius: 4px;
-  background-color: hsl(14 100% 53%);
+  background-color: var(--color-nemo);
   color: #fff;
 }
 
 a:hover,
 a:focus-visible {
-  background-color: #8336ff7b;
+  background-color: var(--color-foam);
   text-decoration: none;
 }
 
 mark {
-  background-color: rgb(255 74 17);
+  background-color: var(--color-nemo);
   color: #ffffff;
   border-radius: 4px;
   letter-spacing: 0.025em;
 }
 
 ::selection {
-  background-color: #252629;
-  color: #ff4a11;
+  background-color: var(--color-granite);
+  color: var(--color-nemo);
 }
