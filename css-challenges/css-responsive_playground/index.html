@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -55,8 +55,18 @@
             folder for options to use.
           </p>
           <div class="box box--five">
-            <!-- You might want to use the <picture> element here. -->
-            <img src="./img/cat_small.jpg" alt="A cat" />
+            <picture>
+              <source srcset="./img/cat_small.jpg" media="(max-width: 598px)" />
+              <source
+                srcset="./img/cat_medium.jpg"
+                media="(max-width: 1198px)"
+              />
+              <source
+                srcset="./img/cat_large.jpg"
+                media="(min-width: 1199px)"
+              />
+              <img src="./img/cat_large.jpg" alt="A cat" />
+            </picture>
           </div>
         </section>
       </section>
