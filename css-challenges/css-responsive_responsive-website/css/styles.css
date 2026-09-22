@@ -247,3 +247,38 @@ CSS based on conditions such as viewport width, etc. */
 /* --- */
 /* Replace this comment with your media query. */
 /* --- */
+
+@media screen and (min-width: 425px) {
+}
+
+@media screen and (min-width: 576px) {
+  .card-section {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  .intro-text,
+  .product-card {
+    width: calc(50% - var(--gap));
+  }
+  .intro-text {
+    align-self: start;
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .--forest {
+    width: 100vw;
+    height: 400px;
+  }
+  .main-content {
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+}
+
+@media screen and (min-width: 1440px) {
+}
