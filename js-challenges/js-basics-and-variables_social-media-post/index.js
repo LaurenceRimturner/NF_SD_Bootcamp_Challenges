@@ -10,7 +10,10 @@ console.clear();
 */
 
 // --v-- write your code here --v--
-
+let postTitle = "This is a post title";
+let postContent = "This is the content of the post";
+let postLikes = 1_522_356;
+let isReported = true;
 // --^-- write your code here --^--
 
 /*
@@ -18,5 +21,9 @@ console.clear();
 */
 
 // --v-- write your code here --v--
-
+console.log(postTitle);
+console.log(postContent);
+console.log(postLikes);
+console.log(postLikes + 1);
+console.log(isReported);
 // --^-- write your code here --^--
