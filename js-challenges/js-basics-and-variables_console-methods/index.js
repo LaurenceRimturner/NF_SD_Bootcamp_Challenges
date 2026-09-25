@@ -1,5 +1,3 @@
-console.clear();
-
 // The exercise starts here!
 
 // For reference, check out all console methods on MDN: https://developer.mozilla.org/en-US/docs/Web/API/console
@@ -19,3 +17,8 @@ console.clear();
 // 7. Which method is used to display an error message in the console? Use it do display the error message in the console.
 
 // Well done!
+
+let coding = "Happy coding!";
+let hacking = "Happy hacking!";
+let error = "this is an error";
+console.error(error);
