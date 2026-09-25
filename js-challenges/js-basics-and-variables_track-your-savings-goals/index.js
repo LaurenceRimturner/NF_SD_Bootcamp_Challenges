@@ -19,6 +19,6 @@ let startingBalance = 1000;
 let monthlyContribution = 100;
 const months = 12;
 
-let totalSavings = startingBalance + monthlyContribution * 12;
+let totalSavings = startingBalance + monthlyContribution * months;
 
 console.log(totalSavings);
