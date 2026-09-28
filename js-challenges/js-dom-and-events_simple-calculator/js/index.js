@@ -8,7 +8,19 @@ const operand2 = 4;
 // Step 1: Use `document.querySelector` to select each button by its `data-js` attribute.
 
 // --v-- write your code here --v--
+const add = document.querySelector('[data-js="add"]');
+const subtract = document.querySelector('[data-js="subtract"]');
+const multiply = document.querySelector('[data-js="multiply"]');
+const divide = document.querySelector('[data-js="divide"]');
+const exponent = document.querySelector('[data-js="exponent"]');
+const modulo = document.querySelector('[data-js="modulo"]');
 
+const incOne = document.querySelector('[data-js="increase-by-one"]');
+const incFive = document.querySelector('[data-js="increase-by-five"]');
+const decOne = document.querySelector('[data-js="decrease-by-one"]');
+const decTwo = document.querySelector('[data-js="decrease-by-five"]');
+const decFive = document.querySelector('[data-js="multiply-by-two"]');
+const divTwo = document.querySelector('[data-js="divide-by-two"]');
 // --^-- write your code here --^--
 
 /* 
@@ -22,7 +34,30 @@ For each operation (add, subtract, multiply, divide, exponent, and modulo):
 */
 
 // --v-- write your code here --v--
-
+add.addEventListener("click", () => {
+  let result = operand1 + operand2;
+  console.log(result);
+});
+subtract.addEventListener("click", () => {
+  let result = operand1 - operand2;
+  console.log(result);
+});
+multiply.addEventListener("click", () => {
+  let result = operand1 * operand2;
+  console.log(result);
+});
+divide.addEventListener("click", () => {
+  let result = operand1 / operand2;
+  console.log(result);
+});
+exponent.addEventListener("click", () => {
+  let result = operand1 ** operand2;
+  console.log(result);
+});
+modulo.addEventListener("click", () => {
+  let result = operand1 % operand2;
+  console.log(result);
+});
 // --^-- write your code here --^--
 
 // ----- Update the First Operand -----
@@ -38,5 +73,28 @@ Step 2: Add event listeners to update `operand1` based on the button clicked. Lo
 */
 
 // --v-- write your code here --v--
-
+incOne.addEventListener("click", () => {
+  let result = operand1 + 1;
+  console.log(result);
+});
+incFive.addEventListener("click", () => {
+  let result = operand1 + 5;
+  console.log(result);
+});
+decOne.addEventListener("click", () => {
+  let result = operand1 - 1;
+  console.log(result);
+});
+decTwo.addEventListener("click", () => {
+  let result = operand1 - 2;
+  console.log(result);
+});
+decFive.addEventListener("click", () => {
+  let result = operand1 - 5;
+  console.log(result);
+});
+divTwo.addEventListener("click", () => {
+  let result = operand1 / 2;
+  console.log(result);
+});
 // --^-- write your code here --^--
