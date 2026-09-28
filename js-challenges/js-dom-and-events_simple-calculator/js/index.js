@@ -18,8 +18,8 @@ const modulo = document.querySelector('[data-js="modulo"]');
 const incOne = document.querySelector('[data-js="increase-by-one"]');
 const incFive = document.querySelector('[data-js="increase-by-five"]');
 const decOne = document.querySelector('[data-js="decrease-by-one"]');
-const decTwo = document.querySelector('[data-js="decrease-by-five"]');
-const decFive = document.querySelector('[data-js="multiply-by-two"]');
+const decFive = document.querySelector('[data-js="decrease-by-five"]');
+const mulTwo = document.querySelector('[data-js="multiply-by-two"]');
 const divTwo = document.querySelector('[data-js="divide-by-two"]');
 // --^-- write your code here --^--
 
@@ -85,12 +85,12 @@ decOne.addEventListener("click", () => {
   let result = operand1 - 1;
   console.log(result);
 });
-decTwo.addEventListener("click", () => {
-  let result = operand1 - 2;
-  console.log(result);
-});
 decFive.addEventListener("click", () => {
   let result = operand1 - 5;
+  console.log(result);
+});
+mulTwo.addEventListener("click", () => {
+  let result = operand1 * 2;
   console.log(result);
 });
 divTwo.addEventListener("click", () => {
