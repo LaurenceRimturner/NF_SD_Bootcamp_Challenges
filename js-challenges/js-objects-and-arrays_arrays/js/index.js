@@ -3,16 +3,16 @@ console.clear();
 // EXERCISE 1
 // Modify the array `exampleArray` so that it contains a number and a string.
 
-const exampleArray = [true];
-exampleArray.unshift("example", 10);
+const exampleArray = ["example", 10];
+// exampleArray.unshift("example", 10);
 
 console.log(exampleArray);
 
 // EXERCISE 2
 // Nest an array inside `nestedArray`. After completing this, `nestedArray` should contain an array as one of its elements.
 
-const nestedArray = ["example", 10, true];
-nestedArray.push(["example", 10]);
+const nestedArray = ["example", 10, true, ["example", 10]];
+// nestedArray.push(["example", 10]);
 
 console.log(nestedArray);
 
