@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -18,13 +18,29 @@
     <form for="title">
       <fieldset>
         <legend>Enter your information</legend>
-        <label>Name:</label>
-        <input id="name-Input" type="text" />
-        <label>Age:</label>
-        <input id="age-Input" type="text" />
-        <label>Color you cannot see:</label>
-        <input id="color-Input" type="color" />
-        <textarea rows="7" placeholder="Leave us a message..."></textarea>
+        <label for="name-input">Name:</label>
+        <input
+          id="name-input"
+          type="text"
+          placeholder="Enter fullname"
+          name="fullname"
+        />
+        <label for="age-input">Age:</label>
+        <input
+          id="age-input"
+          type="number"
+          placeholder="Tell us your age"
+          name="age"
+        />
+        <label for="color-input">Color you cannot see:</label>
+        <input id="color-input" type="color" name="color" />
+        <label for="textarea-input">Enter message:</label>
+        <textarea
+          rows="7"
+          id="textarea-input"
+          placeholder="Leave us a message..."
+          name="textarea"
+        ></textarea>
         <button type="submit">Submit</button>
       </fieldset>
     </form>
