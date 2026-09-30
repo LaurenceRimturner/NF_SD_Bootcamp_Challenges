@@ -7,7 +7,7 @@ const rotationInput = document.querySelector('[data-js="input-rotation"]');
 
 colorInput.addEventListener("click", (e) => {
   const currentRangedValue = e.target.value;
-  box.style.backgroundColor = `hsl(${currentRangedValue}deg, 70%, 60%)`;
+  box.style.backgroundColor = `hsl(${currentRangedValue}deg 70% 60%)`;
   console.log(currentRangedValue);
 });
 borderRadiusInput.addEventListener("click", (e) => {
