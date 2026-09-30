@@ -26,6 +26,25 @@ form.addEventListener("submit", (event) => {
 
   // --v-- write your code here --v--
 
+  const formElements = event.target.elements;
+  const currValueNbrA = Number(formElements.numberA.value);
+  const currValueNbrB = Number(formElements.numberB.value);
+  const operatorValue = formElements.operator.value;
+
+  switch (operatorValue) {
+    case "addition":
+      result = add(currValueNbrA, currValueNbrB);
+      break;
+    case "subtraction":
+      result = subtract(currValueNbrA, currValueNbrB);
+      break;
+    case "multiplication":
+      result = multiply(currValueNbrA, currValueNbrB);
+      break;
+    case "division":
+      result = divide(currValueNbrA, currValueNbrB);
+      break;
+  }
   // --^-- write your code here --^--
 
   resultOutput.textContent = result;
