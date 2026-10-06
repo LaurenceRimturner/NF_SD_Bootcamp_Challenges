@@ -19,4 +19,25 @@ const colors = [
   "#A5A5A5",
 ];
 
-colors.forEach();
+colors.forEach((color) => {
+  const body = document.body;
+  const coloredDiv = document.createElement("div");
+  coloredDiv.classList.add("color-box");
+  coloredDiv.style.backgroundColor = color;
+
+  body.append(coloredDiv);
+  // console.log("color", color);
+});
+
+function renderColorBox(color) {
+  const body = document.body;
+  const coloredDiv = document.createElement("div");
+  coloredDiv.classList.add("color-box");
+  coloredDiv.style.backgroundColor = color;
+
+  body.append(coloredDiv);
+  // console.log("color", color);
+}
+colors.forEach(renderColorBox);
+
+// Er geht durch colors in jede einzelne Farbe und nutzt die Function zum erstellen der Elemente
