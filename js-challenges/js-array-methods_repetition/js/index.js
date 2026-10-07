@@ -35,18 +35,23 @@ const recipes = [
  1: `map` exercises
 */
 
-const onlyTitles = null; // ['Crepes', ...]
+const onlyTitles = recipes.map((i) => i.title); // ['Crepes', ...]
+console.log(onlyTitles);
 
-const titlesWithDuration = null; // ['Crepes (60min)', ...]
+const titlesWithDuration = recipes.map((i) => i.duration); // ['Crepes (60min)', ...]
+console.log(titlesWithDuration);
 
-const timePerServing = null; // [20, 10, 432, 12]
-
+const timePerServing = recipes.map((i) => i.servings); // [20, 10, 432, 12]
+console.log(timePerServing);
 // EXTRA:
 
 // HINT: use first map() and then Array.prototype.join() with "method chaining" like so:
 // myArray.map(...).join(', ');
 
-const allTitlesInOneString = null; // 'Crepes, Scrambled Eggs, ...'
+const allTitlesInOneString1 = recipes.reduce((t, i) => t + " " + i.title, ""); // 'Crepes, Scrambled Eggs, ...'
+console.log(allTitlesInOneString1);
+const allTitlesInOneString2 = recipes.map((i) => i.title).join(", "); // 'Crepes, Scrambled Eggs, ...'
+console.log(allTitlesInOneString2);
 
 // For more information how to join an array,
 // see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join#joining_an_array_four_different_ways
@@ -55,17 +60,25 @@ const allTitlesInOneString = null; // 'Crepes, Scrambled Eggs, ...'
  2: `filter` exercises
 */
 
-const recipesThatOnlyTake60minutesOrLess = null;
+const recipesThatOnlyTake60minutesOrLess = recipes.filter(
+  (i) => i.duration <= 60,
+);
+console.log(recipesThatOnlyTake60minutesOrLess);
 
-const allRecipesWithMoreThan2Servings = null;
+const allRecipesWithMoreThan2Servings = recipes.filter((i) => i.servings > 2);
+console.log(allRecipesWithMoreThan2Servings);
 
-const allRecipesWithTitlesLongerThan12Characters = null;
+const allRecipesWithTitlesLongerThan12Characters = recipes.filter(
+  (i) => i.title.length > 12,
+);
+console.log(allRecipesWithTitlesLongerThan12Characters);
 
 export {
   onlyTitles,
   titlesWithDuration,
   timePerServing,
-  allTitlesInOneString,
+  allTitlesInOneString1,
+  allTitlesInOneString2,
   recipesThatOnlyTake60minutesOrLess,
   allRecipesWithMoreThan2Servings,
   allRecipesWithTitlesLongerThan12Characters,
