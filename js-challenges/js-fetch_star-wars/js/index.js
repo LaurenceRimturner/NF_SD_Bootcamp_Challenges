@@ -3,6 +3,8 @@ import { renderElement } from "./utils.js";
 
 console.clear();
 
+// const apiKey = "https://swapi.py4e.com/api/people";
+
 const EXAMPLE_DATA = {
   name: "Luke Skywalker",
   height: "172",
@@ -37,10 +39,25 @@ const EXAMPLE_DATA = {
 const firstCard = Card(EXAMPLE_DATA);
 renderElement(firstCard);
 
-fetchDataAndRender();
+fetchDataAndRender("https://swapi.py4e.com/api/people");
 
 // --v-- your code below this line --v--
 
-function fetchDataAndRender() {
-  fetch(); // ?
+async function fetchDataAndRender(url) {
+  const res = await fetch(url);
+  const data = await res.json();
+  for (const char of data.results) {
+    const characterCard = Card(char);
+    renderElement(characterCard);
+  }
 }
+// async function fetchDataAndRender() {
+//   const res = await fetch(apiKey);
+//   const data = await res.json();
+//   data.results.forEach((char) => {
+//     const characterCard = Card(char);
+//     renderElement(characterCard);
+//   });
+// }
+
+// PAGINATION Einfügen
