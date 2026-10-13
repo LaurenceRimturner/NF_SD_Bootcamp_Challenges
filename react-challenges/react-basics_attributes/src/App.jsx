@@ -2,8 +2,8 @@ import "./styles.css";
 
 function Article() {
   return (
-    <article>
-      <h2>This is a Headline 2</h2>
+    <article className="article">
+      <h2 className="article__title">This is a Headline 2</h2>
       <label htmlFor="id1">This is a label</label>
       <input id="id1" type="text" />
       <a
