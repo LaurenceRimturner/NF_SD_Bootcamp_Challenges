@@ -10,14 +10,19 @@ export default function App() {
     longitude: 0,
     latitude: 0,
   });
-  useEffect(() => {
-    async function getISSCoords() {
+
+  async function getISSCoords() {
+    try {
       const res = await fetch(URL);
       const data = await res.json();
       setCoords(data);
       console.log(data);
+    } catch (error) {
+      console.error(error.message);
     }
+  }
 
+  useEffect(() => {
     const id = setInterval(getISSCoords, 5000);
     return () => {
       clearInterval(id);
@@ -30,7 +35,7 @@ export default function App() {
       <Controls
         longitude={coords.longitude}
         latitude={coords.latitude}
-        onRefresh={setCoords}
+        onRefresh={getISSCoords}
       />
     </main>
   );
