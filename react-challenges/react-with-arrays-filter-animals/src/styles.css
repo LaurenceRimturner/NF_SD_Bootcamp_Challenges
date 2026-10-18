@@ -21,6 +21,10 @@ body {
   margin: 0.2rem;
   cursor: pointer;
 }
+.button__active {
+  border: 2px solid transparent;
+  background-color: lightblue;
+}
 
 ul {
   display: flex;

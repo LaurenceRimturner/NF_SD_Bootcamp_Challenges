@@ -37,7 +37,11 @@ export default function App() {
       <h1>Animal Filter</h1>
       {habitats.map((area, id) => {
         return (
-          <button className="button" key={id} onClick={() => setHabitat(area)}>
+          <button
+            className={` button ${area === habitat ? "button button__active" : "button"}`}
+            key={id}
+            onClick={() => setHabitat(area)}
+          >
             {area}
           </button>
         );
