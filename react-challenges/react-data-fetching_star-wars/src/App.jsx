@@ -5,31 +5,28 @@ import "./styles.css";
 
 export default function App() {
   const [characterIds, setcharacterIds] = useState(1);
-  function handleSetId(id) {
-    setcharacterIds(id);
-  }
-
+  // () => setcharacterIds(1) ohne Function // war nicht falsch aber besser wenn Inline
   return (
     <Layout>
       <h1>React Data Fetching: Star Wars</h1>
       <ul className="characters">
         <li>
-          <button type="button" onClick={() => handleSetId(1)}>
+          <button type="button" onClick={() => setcharacterIds(1)}>
             Luke Skywalker
           </button>
         </li>
         <li>
-          <button type="button" onClick={() => handleSetId(2)}>
+          <button type="button" onClick={() => setcharacterIds(2)}>
             C-3PO
           </button>
         </li>
         <li>
-          <button type="button" onClick={() => handleSetId(3)}>
+          <button type="button" onClick={() => setcharacterIds(3)}>
             R2-D2
           </button>
         </li>
         <li>
-          <button type="button" onClick={() => handleSetId(4)}>
+          <button type="button" onClick={() => setcharacterIds(4)}>
             Darth Vader
           </button>
         </li>
