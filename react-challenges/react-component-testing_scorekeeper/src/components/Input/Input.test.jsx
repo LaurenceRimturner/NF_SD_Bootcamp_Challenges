@@ -5,7 +5,7 @@
 // test("renders a label and an input with the correct attributes", () => {
 //   render(<Input />);
 
-//   const input = screen.getByRole("textbox", { name: /name/i });
+//   const input = screen.lableText("textbox", { name: /name/i });
 
 //   expect(input).toHaveAttribute("name", "name");
 // });
