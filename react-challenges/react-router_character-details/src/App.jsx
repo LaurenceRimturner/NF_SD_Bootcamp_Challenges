@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import CharacterList from "./pages/CharacterList";
 import CharacterForm from "./pages/CharacterForm";
+import CharacterDetails from "./pages/CharacterDetails";
 
 export default function App() {
   const [characters, setCharacters] = useState(initialCharacters);
@@ -31,6 +32,10 @@ export default function App() {
           <Route
             path="/characters"
             element={<CharacterList characters={characters} />}
+          />
+          <Route
+            path="/characters/:id"
+            element={<CharacterDetails characters={characters} />}
           />
           <Route
             path="/new"

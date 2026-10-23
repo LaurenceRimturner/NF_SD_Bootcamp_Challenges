@@ -1,4 +1,5 @@
 import CharacterCard from "../components/CharacterCard";
+import { Link } from "react-router";
 
 export default function CharacterList({ characters }) {
   return (
@@ -7,7 +8,9 @@ export default function CharacterList({ characters }) {
       <ul className="gallery">
         {characters.map((character) => (
           <li key={character.id}>
-            <CharacterCard character={character} />
+            <Link to={`/characters/${character.id}`}>
+              <CharacterCard character={character} />
+            </Link>
           </li>
         ))}
       </ul>
