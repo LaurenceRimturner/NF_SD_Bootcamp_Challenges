@@ -1,16 +1,11 @@
-type Student = {
-  firstName: string;
-  lastName: string;
-  age: number;
-  grades: (number | undefined)[];
-};
+import { Student } from "./types";
 
 function printStudent(student: Student): void {
   const title = `${student.firstName} ${student.lastName} (${student.age})`;
   console.log(title);
   console.log("=".repeat(30));
   const grades = student.grades.map((grade) =>
-    grade === undefined ? "*" : grade
+    grade === undefined ? "*" : grade,
   );
   console.log(`Grades: ${grades.join(",")}`);
 }
@@ -21,13 +16,21 @@ function printStudent(student: Student): void {
 // b) Use `Grade` for the grades in `Student`.
 //    Remember: a grade can still be missing (`undefined`).
 
+const student: Student = {
+  firstName: "Laureen",
+  lastName: "Felgendreher",
+  age: 27,
+  grades: [3, 1, undefined, 4, "B", undefined, "A", 5, 2, undefined],
+};
+
+printStudent(student);
 // Step 2: Check the output
 // a) Create a student with a mix of number grades, letter grades and missing grades.
 // b) Call `printStudent` with your student. The grades should look like this:
 //
 //    Grades: A,2,*,F,3,1,B,*,5
 //
-// c) Did you have to change `printStudent`?
+// c) Did you have to change `printStudent`?  No its iterating through ever element
 
 // Step 3: Break it on purpose
 // a) Add the grade 7 or "E" to your student.
