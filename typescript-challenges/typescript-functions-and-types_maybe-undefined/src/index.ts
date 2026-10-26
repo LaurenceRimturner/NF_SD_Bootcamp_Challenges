@@ -10,6 +10,16 @@
 // Step 3: Call `printScore` with 87.5 and with `undefined`.
 // Then try to call it with the string "high". Read the error message and remove the line again.
 
+function printScore(score: number | undefined): void {
+  if (score === undefined) {
+    console.log("Score: n/a");
+  } else {
+    console.log("Score:", score.toFixed(1));
+  }
+}
+printScore(87.5);
+printScore(undefined);
+
 // Step 4: Write a function `describeStudent` that takes a `name` (string) and an optional `age` (number).
 // It returns "Max (17)" if there is an age, and just "Max" if there is none.
 // Hint: Search for "TypeScript optional parameter" to find out how to mark a parameter as optional.
@@ -17,10 +27,20 @@
 // b) Call `describeStudent` with and without an age.
 //    What happens if you call it without any arguments? Read the error message and remove the line again.
 
+function describeStudent(name: string, age?: number): string {
+  return age ? `${name} (${age})` : `${name}`;
+}
+console.log(describeStudent("Max", 50));
+console.log(describeStudent("Anna"));
+
 // Step 5: Create an array `scores` with the values 80, 95, `undefined` and 60.
 // a) Hover over `scores`: Which type does TypeScript infer by itself?
 // b) Print every score with `printScore`, using a loop.
 
+const scores: (string | number)[] = [80, 95, `undefined`, 60];
+
+const allScores = scores.map((score) => printScore(score));
+
 // Question: What does `number | undefined` tell you when you read the signature of `printScore`?
 // Why is the error message from step 1 helpful, even though it feels annoying?
-// Answer:
+// Answer: number | undefined, it warns me => core.toFixed(1) would crash if score is undefined
