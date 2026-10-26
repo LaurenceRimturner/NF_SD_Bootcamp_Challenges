@@ -39,7 +39,7 @@ console.log(describeStudent("Anna"));
 
 const scores: (string | number)[] = [80, 95, `undefined`, 60];
 
-const allScores = scores.map((score) => printScore(score));
+// const allScores = scores.map((score) => printScore(score));
 
 // Question: What does `number | undefined` tell you when you read the signature of `printScore`?
 // Why is the error message from step 1 helpful, even though it feels annoying?
