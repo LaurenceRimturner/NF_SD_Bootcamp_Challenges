@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./styles.css";
-
 // Step 1: Define a type `Todo` with the properties `id` (number), `text` (string)
 // and `isDone` (boolean).
+type Todo = { id: number; text: string; isDone: boolean };
 
 // Step 2: Give the `todos` state its type: an array of `Todo`.
 // Experiment: change the initial value to `[]` without a type. TypeScript infers `never[]`
@@ -11,28 +11,28 @@ import "./styles.css";
 // if no todo is selected. Type the state with a union.
 
 export default function App() {
-  const [todos, setTodos] = useState([
+  const [todos, setTodos] = useState<Todo[]>([
     { id: 1, text: "Learn TypeScript", isDone: false },
     { id: 2, text: "Type some state", isDone: false },
   ]);
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = useState<Todo["id"] | null>(null);
   const [count, setCount] = useState(0);
-
+  // setCount("one")
   // Step 4: Type the parameter of the handlers. `id` is a number, `text` is a string.
-  function handleToggle(id) {
+  function handleToggle(id: number) {
     setTodos(
       todos.map((todo) =>
-        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
-      )
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo,
+      ),
     );
   }
 
-  function handleDelete(id) {
+  function handleDelete(id: number) {
     setTodos(todos.filter((todo) => todo.id !== id));
     setSelectedId(null);
   }
 
-  function handleAdd(text) {
+  function handleAdd(text: string) {
     setTodos([...todos, { id: Date.now(), text, isDone: false }]);
     setCount(count + 1);
   }
@@ -58,7 +58,7 @@ export default function App() {
 
       {/* Step 5: `selectedTodo` can be undefined. TypeScript makes sure you check that
           before you use it. Show the text of the selected todo or "Nothing selected". */}
-      <p>Selected: {selectedTodo.text}</p>
+      <p>Selected: {selectedTodo?.text ?? "Nothing selected"}</p>
 
       {/* Step 6: Try `setCount("one")` somewhere. Read the error message. */}
     </main>
