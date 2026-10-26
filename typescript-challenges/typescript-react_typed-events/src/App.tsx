@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { ChangeEvent, MouseEvent, FormEvent, useState } from "react";
 import "./styles.css";
 
 // Step 1: Define a type `Signup` with `name` (string) and `level` (only "beginner",
 // "intermediate" or "advanced").
-
+type Signup = {
+  name: string;
+  level: "beginner" | "intermediate" | "advanced";
+};
 export default function App() {
-  const [name, setName] = useState("");
-  const [level, setLevel] = useState("beginner");
-  const [signups, setSignups] = useState([]);
+  const [name, setName] = useState<Signup["name"]>("");
+  const [level, setLevel] = useState<Signup["level"]>("beginner");
+  const [signups, setSignups] = useState<Signup[]>([]);
 
   // Step 2: Type the event of the text input. Use `ChangeEvent<HTMLInputElement>`.
-  function handleNameChange(event) {
+  function handleNameChange(event: ChangeEvent<HTMLInputElement>) {
     setName(event.target.value);
   }
 
@@ -18,12 +21,12 @@ export default function App() {
   // `event.target.value` is a `string`, but `level` only allows three values.
   // Fix this, for example with a type assertion (`as Signup["level"]`),
   // and think about why this is not completely safe.
-  function handleLevelChange(event) {
-    setLevel(event.target.value);
+  function handleLevelChange(event: ChangeEvent<HTMLSelectElement>) {
+    setLevel(event.target.value as Signup["level"]);
   }
 
   // Step 4: Type the event of the form with `FormEvent<HTMLFormElement>`.
-  function handleSubmit(event) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setSignups([...signups, { name, level }]);
     setName("");
@@ -31,8 +34,8 @@ export default function App() {
 
   // Step 5: Type the event of the reset button with `MouseEvent<HTMLButtonElement>`
   // and log `event.currentTarget.textContent`.
-  function handleReset(event) {
-    console.log(event);
+  function handleReset(event: MouseEvent<HTMLButtonElement>) {
+    console.log(event.currentTarget.textContent);
     setSignups([]);
   }
 
