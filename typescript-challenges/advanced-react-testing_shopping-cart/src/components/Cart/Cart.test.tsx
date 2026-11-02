@@ -1,7 +1,7 @@
-import { test, vi } from "vitest";
+import { beforeEach, expect, test, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import CartItem from "../CartItem";
+import CartItem, { type CartItemProps } from "../CartItem";
 import ShippingEstimate from "../ShippingEstimate";
 import Cart from ".";
 
@@ -14,24 +14,55 @@ import Cart from ".";
 // - Wrap the mock components in vi.fn() so you can look at the props they received
 //   (vi.mocked(CartItem).mock.calls).
 
+vi.mock("../CartItem", () => ({
+  default: vi.fn(({ item, onQuantityChange, onRemove }: CartItemProps) => (
+    <li className="cart-item">
+      {item.name}
+      <button type="button" onClick={() => onQuantityChange?.(item.id, 3)}>
+        set quantity of {item.name} to 3
+      </button>
+      <button type="button" onClick={() => onRemove?.(item.id)}>
+        Remove {item.name}
+      </button>
+    </li>
+  )),
+}));
+
+vi.mock("../ShippingEstimate", () => ({
+  default: vi.fn(() => <p>Shipping Estimate</p>),
+}));
+
+beforeEach(() => {
+  vi.clearAllMocks();
+});
+
 const initialItems = [
   { id: "1", name: "Coffee Grinder", price: 80, quantity: 1 },
   { id: "2", name: "Coffee Beans", price: 12.5, quantity: 2 },
 ];
 
 test("renders a CartItem for every item", () => {
+  render(<Cart initialItems={initialItems} />);
+  expect(screen.getByText("Coffee Grinder")).toBeInTheDocument();
+  expect(screen.getByText("Coffee Beans")).toBeInTheDocument();
   // Both item names are on the screen.
 });
 
 test("passes the item to its CartItem", () => {
+  render(<Cart initialItems={initialItems} />);
+  const props = vi.mocked(CartItem).mock.calls.map(([props]) => props);
+  expect(props[1].item).toEqual(initialItems[1]);
   // The second call of the mocked CartItem received the second item as the prop "item".
 });
 
 test("shows the total price of all items", () => {
+  render(<Cart initialItems={initialItems} />);
+  expect(screen.getByText("Total: 105.00 €")).toBeInTheDocument();
   // 80 × 1 + 12.5 × 2 = 105.00 €
 });
 
 test("passes the total to ShippingEstimate", () => {
+  render(<Cart initialItems={initialItems} />);
   // The last call of the mocked ShippingEstimate received { total: 105 }.
 });
 

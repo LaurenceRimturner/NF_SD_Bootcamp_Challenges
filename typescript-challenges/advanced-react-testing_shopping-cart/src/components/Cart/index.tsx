@@ -12,7 +12,7 @@ export default function Cart({ initialItems = [] }: CartProps) {
 
   function handleQuantityChange(id: string, quantity: number) {
     setItems(
-      items.map((item) => (item.id === id ? { ...item, quantity } : item))
+      items.map((item) => (item.id === id ? { ...item, quantity } : item)),
     );
   }
 
@@ -20,7 +20,10 @@ export default function Cart({ initialItems = [] }: CartProps) {
     setItems(items.filter((item) => item.id !== id));
   }
 
-  const total = items.reduce((sum, item) => sum + item.price, 0);
+  const total = items.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0,
+  );
 
   return (
     <>
