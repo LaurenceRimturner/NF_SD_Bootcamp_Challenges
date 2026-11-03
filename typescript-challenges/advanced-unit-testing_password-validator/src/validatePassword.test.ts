@@ -37,18 +37,23 @@ describe("validatePassword", () => {
   });
 
   test("reports a password without a digit", () => {
-    const errors = validatePassword("");
-    expect(errors).toContain("Password must contain a digit");
+    const errors = validatePassword("ABCDEFGHIJKLMN");
+    expect(errors).toEqual(["Password must contain a digit"]);
   });
 
   test("reports a password without an uppercase letter", () => {
-    const errors = validatePassword("lowercase");
-    expect(errors).toContain("Password must contain an uppercase letter");
+    const errors = validatePassword("lowercase123");
+    expect(errors).toEqual(["Password must contain an uppercase letter"]);
   });
 
   test("reports a password with a space", () => {
     const errors = validatePassword("a b");
-    expect(errors).toContain("Password must not contain spaces");
+    expect(errors).toEqual([
+      "Password must have at least 8 characters",
+      "Password must contain a digit",
+      "Password must contain an uppercase letter",
+      "Password must not contain spaces",
+    ]);
   });
 
   test("returns all errors at once for a password that breaks every rule", () => {
@@ -63,8 +68,10 @@ describe("assertValidPassword", () => {
   });
 
   test("throws an error that lists the broken rules", () => {
-    expect(() => assertValidPassword("a b")).toThrow(
-      "Password must have at least 8 characters, Password must contain a digit, Password must contain an uppercase letter",
+    expect(() => {
+      assertValidPassword("a b");
+    }).toThrowError(
+      "Password must have at least 8 characters, Password must contain a digit, Password must contain an uppercase letter, Password must not contain spaces",
     );
   });
 });

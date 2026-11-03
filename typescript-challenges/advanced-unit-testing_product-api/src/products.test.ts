@@ -24,7 +24,7 @@ describe("getProduct", () => {
 
     await getProduct(1);
 
-    expect(fetchSpy).toHaveBeenCalledWith("https://dummyjson.com/products/");
+    expect(fetchSpy).toHaveBeenCalledWith("https://dummyjson.com/products/1");
   });
 
   test("resolves with the product from the response", async () => {
